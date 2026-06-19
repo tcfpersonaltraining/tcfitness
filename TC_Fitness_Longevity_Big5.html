@@ -404,7 +404,35 @@
                 padding: 30px 20px;
             }
         }
-    </style>
+    
+.check-row { display: flex; gap: 8px; margin-top: 4px; }
+.check-btn {
+    display: flex; align-items: center; gap: 6px;
+    background: #191919; border: 1.5px solid #333; border-radius: 4px;
+    padding: 6px 12px; cursor: pointer; font-size: 13px; color: #aaa;
+    transition: all 0.15s; user-select: none;
+}
+.check-btn:hover { border-color: #9A7200; color: #fff; }
+.check-btn.active-pass { background: rgba(200,149,10,0.15); border-color: #C8950A; color: #E8A800; }
+.check-btn.active-fail { background: rgba(180,60,60,0.15); border-color: #c04040; color: #e08080; }
+.check-icon {
+    width: 15px; height: 15px; border: 1.5px solid #444; border-radius: 3px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 10px; flex-shrink: 0; transition: all 0.15s;
+}
+.check-btn.active-pass .check-icon { background: #C8950A; border-color: #C8950A; color: #000; }
+.check-btn.active-fail .check-icon { background: #c04040; border-color: #c04040; color: #fff; }
+.score-result {
+    display: none; margin-top: 20px; padding: 20px 24px;
+    background: #1C1C1C; border: 1px solid #2a2a2a; border-radius: 4px;
+}
+.score-result.visible { display: block; }
+.score-number { font-size: 48px; font-weight: 700; color: #C8950A; line-height: 1; }
+.score-label { font-size: 13px; color: #888; margin-top: 4px; }
+.score-meaning { font-size: 18px; font-weight: 700; color: #E8A800; margin: 10px 0 6px; }
+.score-next { font-size: 14px; color: #ccc; }
+
+</style>
 </head>
 <body>
     <div class="container">
@@ -788,38 +816,62 @@
             <h2>The Longevity Self-Assessment</h2>
             <p>Before you start any new program, it helps to know where you stand. Use this quick assessment to benchmark your current capabilities — then retest in 8 weeks to measure your progress.</p>
             
-            <div class="assessment-grid">
-                <div class="assessment-item">
-                    <div class="assessment-item-number">01</div>
-                    <strong>Walk Test</strong>
-                    <p style="margin: 12px 0 0 0; font-size: 14px;">Walk continuously for 30 minutes at a brisk pace without stopping or feeling exhausted.</p>
-                    <p style="margin: 10px 0 0 0;">□ Pass &nbsp; □ Not Yet</p>
-                </div>
-                <div class="assessment-item">
-                    <div class="assessment-item-number">02</div>
-                    <strong>Sit-to-Stand Test</strong>
-                    <p style="margin: 12px 0 0 0; font-size: 14px;">Rise from a standard chair 10 times without using your hands for assistance.</p>
-                    <p style="margin: 10px 0 0 0;">□ Pass &nbsp; □ Not Yet</p>
-                </div>
-                <div class="assessment-item">
-                    <div class="assessment-item-number">03</div>
-                    <strong>Balance Test</strong>
-                    <p style="margin: 12px 0 0 0; font-size: 14px;">Stand on one leg for 30 seconds without touching down or grabbing support.</p>
-                    <p style="margin: 10px 0 0 0;">□ Pass &nbsp; □ Not Yet</p>
-                </div>
-                <div class="assessment-item">
-                    <div class="assessment-item-number">04</div>
-                    <strong>Carry Test</strong>
-                    <p style="margin: 12px 0 0 0; font-size: 14px;">Carry two grocery-weight bags (10–15 lbs each) for 60 seconds while standing tall.</p>
-                    <p style="margin: 10px 0 0 0;">□ Pass &nbsp; □ Not Yet</p>
-                </div>
-                <div class="assessment-item">
-                    <div class="assessment-item-number">05</div>
-                    <strong>Row Test</strong>
-                    <p style="margin: 12px 0 0 0; font-size: 14px;">Complete 10 controlled rows with a resistance band or light dumbbells with full range of motion.</p>
-                    <p style="margin: 10px 0 0 0;">□ Pass &nbsp; □ Not Yet</p>
-                </div>
-            </div>
+            <p>Click <strong style="color:#C8950A">Pass</strong> or <strong style="color:#e08080">Not Yet</strong> for each test.</p>
+
+<div class="assessment-grid">
+    <div class="assessment-item">
+        <div class="assessment-item-number">01</div>
+        <strong>Walk Test</strong>
+        <p style="margin: 12px 0 8px 0; font-size: 14px;">Walk continuously for 30 minutes at a brisk pace without stopping or feeling exhausted.</p>
+        <div class="check-row">
+            <button class="check-btn" data-test="1" data-val="pass" onclick="handleCheck(this)"><span class="check-icon"></span> Pass</button>
+            <button class="check-btn" data-test="1" data-val="fail" onclick="handleCheck(this)"><span class="check-icon"></span> Not Yet</button>
+        </div>
+    </div>
+    <div class="assessment-item">
+        <div class="assessment-item-number">02</div>
+        <strong>Sit-to-Stand Test</strong>
+        <p style="margin: 12px 0 8px 0; font-size: 14px;">Rise from a standard chair 10 times without using your hands for assistance.</p>
+        <div class="check-row">
+            <button class="check-btn" data-test="2" data-val="pass" onclick="handleCheck(this)"><span class="check-icon"></span> Pass</button>
+            <button class="check-btn" data-test="2" data-val="fail" onclick="handleCheck(this)"><span class="check-icon"></span> Not Yet</button>
+        </div>
+    </div>
+    <div class="assessment-item">
+        <div class="assessment-item-number">03</div>
+        <strong>Balance Test</strong>
+        <p style="margin: 12px 0 8px 0; font-size: 14px;">Stand on one leg for 30 seconds without touching down or grabbing support.</p>
+        <div class="check-row">
+            <button class="check-btn" data-test="3" data-val="pass" onclick="handleCheck(this)"><span class="check-icon"></span> Pass</button>
+            <button class="check-btn" data-test="3" data-val="fail" onclick="handleCheck(this)"><span class="check-icon"></span> Not Yet</button>
+        </div>
+    </div>
+    <div class="assessment-item">
+        <div class="assessment-item-number">04</div>
+        <strong>Carry Test</strong>
+        <p style="margin: 12px 0 8px 0; font-size: 14px;">Carry two grocery-weight bags (10–15 lbs each) for 60 seconds while standing tall.</p>
+        <div class="check-row">
+            <button class="check-btn" data-test="4" data-val="pass" onclick="handleCheck(this)"><span class="check-icon"></span> Pass</button>
+            <button class="check-btn" data-test="4" data-val="fail" onclick="handleCheck(this)"><span class="check-icon"></span> Not Yet</button>
+        </div>
+    </div>
+    <div class="assessment-item">
+        <div class="assessment-item-number">05</div>
+        <strong>Row Test</strong>
+        <p style="margin: 12px 0 8px 0; font-size: 14px;">Complete 10 controlled rows with a resistance band or light dumbbells with full range of motion.</p>
+        <div class="check-row">
+            <button class="check-btn" data-test="5" data-val="pass" onclick="handleCheck(this)"><span class="check-icon"></span> Pass</button>
+            <button class="check-btn" data-test="5" data-val="fail" onclick="handleCheck(this)"><span class="check-icon"></span> Not Yet</button>
+        </div>
+   </div>
+</div>
+
+<div class="score-result" id="scoreResult">
+    <div class="score-number" id="scoreNum">0</div>
+    <div class="score-label">out of 5</div>
+    <div class="score-meaning" id="scoreMeaning"></div>
+    <div class="score-next" id="scoreNext"></div>
+</div>
             
             <table>
                 <thead>
@@ -876,5 +928,10 @@
             <div class="footer-text" style="margin-top: 20px; font-size: 13px;">— Trey Cooper | Founder, TC Fitness | ISSA CPT | PTA</div>
         </div>
     </div>
+<script>
+const scores = {};
+const scoreData = {5:{meaning:'Strong Baseline',next:'Follow the Weekly Longevity Plan and increase intensity progressively.'},4:{meaning:'Solid Foundation',next:'Focus on the exercises where you scored Not Yet. Regression versions are a great start.'},3:{meaning:'Solid Foundation',next:'Focus on the exercises where you scored Not Yet. Regression versions are a great start.'},2:{meaning:'Opportunity Zone',next:'Start with regression versions of all five exercises. Consider personalized coaching.'},1:{meaning:'Opportunity Zone',next:'Start with regression versions of all five exercises. Consider personalized coaching.'},0:{meaning:'Start Here',next:'Begin with daily brisk walking and bodyweight sit-to-stands. Consult a professional.'}};
+function handleCheck(btn){const test=btn.dataset.test;const siblings=document.querySelectorAll(`[data-test="${test}"]`);if(btn.classList.contains('active-pass')||btn.classList.contains('active-fail')){btn.classList.remove('active-pass','active-fail');btn.querySelector('.check-icon').textContent='';delete scores[test];}else{siblings.forEach(s=>{s.classList.remove('active-pass','active-fail');s.querySelector('.check-icon').textContent='';});if(btn.dataset.val==='pass'){btn.classList.add('active-pass');btn.querySelector('.check-icon').textContent='✓';scores[test]='pass';}else{btn.classList.add('active-fail');btn.querySelector('.check-icon').textContent='✕';scores[test]='fail';}}const passing=Object.values(scores).filter(v=>v==='pass').length;const el=document.getElementById('scoreResult');if(!Object.keys(scores).length){el.classList.remove('visible');return;}document.getElementById('scoreNum').textContent=passing;document.getElementById('scoreMeaning').textContent=scoreData[passing].meaning;document.getElementById('scoreNext').textContent=scoreData[passing].next;el.classList.add('visible');}
+</script>
 </body>
 </html>
