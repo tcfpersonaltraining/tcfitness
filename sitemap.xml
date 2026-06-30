@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Main site homepage -->
   <url>
     <loc>https://tcfpersonaltraining.github.io/tcfitness/</loc>
-    <lastmod>2026-06-30</lastmod>
   </url>
 
-  <!-- Longevity Big 5 Assessment -->
   <url>
     <loc>https://tcfpersonaltraining.github.io/tcfitness/TC_Fitness_Longevity_Big5.html</loc>
-    <lastmod>2026-06-30</lastmod>
   </url>
 
-  <!-- 7-Day Weight Loss Reset Guide -->
   <url>
     <loc>https://tcfpersonaltraining.github.io/tcfitness/7-Day%20Weight%20Loss%20Reset%20_%20TC%20Fitness.html</loc>
-    <lastmod>2026-06-30</lastmod>
   </url>
 
-  <!-- Shoulder Reset Guide -->
   <url>
     <loc>https://tcfpersonaltraining.github.io/tcfitness/TC_Fitness_Shoulder_Reset_Guide.html</loc>
-    <lastmod>2026-06-30</lastmod>
   </url>
 
 </urlset>
