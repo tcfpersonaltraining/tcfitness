@@ -21,8 +21,8 @@ html{scroll-behavior:smooth;}
 
 body{
 font-family:'Liberation Sans','Helvetica Neue',Arial,sans-serif;
-color:var(--charcoal);
-background:var(--white);
+color:var(--white);
+background:#1E1E1E;
 line-height:1.6;
 -webkit-font-smoothing:antialiased;
 }
@@ -30,7 +30,7 @@ line-height:1.6;
 h1,h2,h3{
 font-family:'Liberation Serif','Georgia',serif;
 font-weight:700;
-color:var(--charcoal);
+color:white;
 line-height:1.15;
 letter-spacing:-0.01em;
 }
@@ -41,7 +41,17 @@ a{color:inherit;}
 .wrap{ max-width:640px; margin:0 auto; padding:0 24px; }
 section{ padding:60px 0; }
 
-.bg-cream{ background:var(--cream); }
+.bg-cream{ background:#1E1E1E; color:white; }
+.bg-cream h1,
+.bg-cream h2,
+.bg-cream h3{
+color:white;
+}
+
+.bg-cream p,
+.bg-cream li{
+color:#D8D8D8;
+}
 .bg-charcoal{ background:var(--charcoal); color:var(--white); }
 .bg-charcoal h1, .bg-charcoal h2, .bg-charcoal h3{ color:var(--white); }
 
@@ -54,7 +64,7 @@ color:var(--gold-deep); font-weight:700; margin-bottom:14px; display:block;
 h1{ font-size:32px; margin-bottom:18px; }
 h2{ font-size:25px; margin-bottom:18px; }
 
-.sub{ font-size:17px; color:var(--stone); max-width:52ch; }
+.sub{ font-size:17px; color:#D6D6D6; max-width:52ch; }
 .bg-charcoal .sub{ color:#C9C6BB; }
 
 .rule{ width:44px; height:3px; background:var(--gold); margin:0 0 18px 0; border:none; }
@@ -81,8 +91,8 @@ justify-content:center; margin-top:14px; font-size:13px; color:var(--stone);
 
 /* HERO */
 .hero{ padding:0; }
-.hero-frame{ position:relative; width:100%; aspect-ratio:2/3; overflow:hidden; background:var(--charcoal); }
-.hero-frame img{ width:100%; height:100%; object-fit:cover; object-position:center 20%; }
+.hero-frame{ position:relative; width:100%; height:700px; overflow:hidden; background:var(--charcoal); }
+.hero-frame img{ width:100%; height:100%; object-fit:cover; object-position:center center; }
 .hero-frame::after{
 content:""; position:absolute; inset:0;
 background:linear-gradient(180deg, rgba(30,30,30,0) 45%, rgba(30,30,30,0.86) 100%);
@@ -104,12 +114,12 @@ color:#D8D4C6; margin-top:22px; padding-top:18px; border-top:1px solid rgba(255,
 .signs{ list-style:none; margin:22px 0 0; }
 .signs li{
 padding:14px 0 14px 26px; border-bottom:1px solid var(--line);
-position:relative; color:var(--charcoal-soft); font-size:16px;
+position:relative; color:#E4E4E4; font-size:16px;
 }
 .signs li::before{ content:"—"; position:absolute; left:0; top:14px; color:var(--gold-deep); font-weight:700; }
 .signs li:last-child{ border-bottom:none; }
 
-.narrative p{ font-size:16px; color:var(--charcoal-soft); margin-bottom:14px; }
+.narrative p{ color:#D7D7D7; } margin-bottom:14px; }
 .narrative p.tight{ margin-bottom:4px; }
 
 .callout{ margin-top:26px; padding:22px 22px; background:var(--white); border-left:3px solid var(--gold); }
@@ -125,7 +135,7 @@ position:relative; color:var(--charcoal-soft); font-size:16px;
 /* Question list (Stop Guessing) */
 .questions{ list-style:none; margin:24px 0; }
 .questions li{
-font-family:'Liberation Serif',serif; font-size:18px; color:var(--charcoal);
+font-family:'Liberation Serif',serif; font-size:18px; color:white;
 padding:14px 0 14px 30px; border-bottom:1px solid var(--line); position:relative;
 }
 .questions li:last-child{ border-bottom:none; }
@@ -137,12 +147,12 @@ padding:14px 0 14px 30px; border-bottom:1px solid var(--line); position:relative
 .step:last-child{ border-bottom:1px solid var(--line); }
 .step-num{ font-family:'Liberation Serif',serif; font-size:30px; color:var(--gold); font-weight:700; line-height:1; min-width:40px; }
 .step-body h3{ font-size:17px; margin-bottom:5px; }
-.step-body p{ color:var(--stone); font-size:15px; }
+.step-body p{ color:#D0D0D0; font-size:15px; }
 .step-body .step-note{ color:var(--gold-deep); font-size:13px; font-weight:700; margin-top:4px; }
 
 /* Receive list */
 .receive{ list-style:none; margin-top:22px; }
-.receive li{ display:flex; gap:14px; padding:13px 0; font-size:16px; color:var(--charcoal-soft); align-items:flex-start; }
+.receive li{ display:flex; gap:14px; padding:13px 0; font-size:16px; color:#E4E4E4; align-items:flex-start; }
 .receive li.bonus{ border-top:1px dashed var(--line); margin-top:8px; padding-top:20px; }
 .check{
 flex-shrink:0; width:22px; height:22px; border-radius:50%; background:var(--gold); color:var(--charcoal);
@@ -202,7 +212,14 @@ details p{ margin-top:12px; color:var(--stone); font-size:15px; max-width:56ch; 
 .final h2{ font-size:27px; }
 .final .sub{ margin:0 auto 8px; }
 
-footer{ padding:32px 24px 48px; text-align:center; font-size:13px; color:var(--stone); background:var(--cream); }
+footer{
+padding:32px 24px 48px;
+text-align:center;
+font-size:13px;
+color:#BFBFBF;
+background:#1E1E1E;
+border-top:1px solid #333;
+}
 
 @media(min-width:640px){
 .hero-frame{ aspect-ratio:16/10; }
@@ -223,13 +240,13 @@ section{ padding:84px 0; }
 <!-- HERO -->
 <section class="hero">
 <div class="hero-frame">
-<img src="C:\Users\Mariah Cooper\Downloads\centre-for-ageing-better-0eVhtxeZAR0-unsplash.jpg" alt="Woman in her 60s running outdoors on a sunny trail and smiling.">
+<img src="images/header.jpg" alt="Woman jogging outdoors">
 </div>
 <div class="hero-copy wrap">
 <span class="hero-badge">Free · 5-Minute Assessment</span>
 <h1>How Well Is Your Body Really Aging?</h1>
 <p class="sub">Take the free TC Fitness Longevity Assessment and discover where you stand today — and what you can do to stay strong, active, and independent for years to come.</p>
-<a href="#assessment" class="cta cta-full">Take My Free Longevity Assessment</a>
+<a href="https://forms.gle/rbxvp4xWvrBGfcnq8" target="_blank" class="cta"> Take My Free Longevity Assessment </a>
 <ul class="micro-checks">
 <li>~5 minutes</li>
 <li>Personalized recommendations</li>
@@ -302,7 +319,7 @@ section{ padding:84px 0; }
 <p>Five minutes today can give you more clarity than months of wondering.</p>
 </div>
 <div class="cta-block">
-<a href="#assessment" class="cta">Take My Free Longevity Assessment</a>
+<a href="https://forms.gle/rbxvp4xWvrBGfcnq8" target="_blank" class="cta">Take My Free Longevity Assessment</a>
 </div>
 </div>
 </section>
@@ -384,7 +401,7 @@ section{ padding:84px 0; }
 <li>Want a smarter starting point than random workouts online</li>
 </ul>
 <div class="cta-block">
-<a href="#assessment" class="cta">Take My Free Longevity Assessment</a>
+<a href="https://forms.gle/rbxvp4xWvrBGfcnq8" target="_blank" class="cta">Take My Free Longevity Assessment</a>
 </div>
 </div>
 </section>
