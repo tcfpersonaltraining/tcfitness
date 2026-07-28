@@ -20,6 +20,7 @@
 html{scroll-behavior:smooth;}
 
 body{
+font-size:18px;
 font-family:'Liberation Sans','Helvetica Neue',Arial,sans-serif;
 color:var(--white);
 background:#1E1E1E;
@@ -173,7 +174,13 @@ color:#E3E0D4; padding-left:30px; position:relative;
 .trust{ display:flex; flex-direction:column; gap:22px; }
 .trust-photo{ width:100%; max-width:200px; margin:0 auto; border-radius:4px; overflow:hidden; border:1px solid var(--line); }
 .trust-photo img{ width:100%; aspect-ratio:1/1; object-fit:cover; }
-.trust-text{ text-align:center; }
+.trust-text{
+text-align:center;
+background:#2A2A2A;
+padding:30px;
+border-radius:8px;
+border:1px solid rgba(201,168,76,.25);
+}
 .trust-text p{ font-size:16px; color:var(--charcoal-soft); text-align:left; margin-bottom:14px; }
 .badge-row{ list-style:none; display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:18px; }
 .badge-row li{
