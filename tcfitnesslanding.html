@@ -1,1 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>TC Fitness — Physical Capacity Check</title>
+
+<style>
+
+:root{
+  --ink:#1E1E1E;
+  --parchment:#F7F4EC;
+  --parchment-2:#FDFCF9;
+  --gold:#C9A84C;
+  --bronze:#8C6D2C;
+  --stone:#55524C;
+  --line:#E4DFD2;
+  --serif:Georgia,'Times New Roman',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:var(--sans);
+  background:var(--parchment);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{
+  display:block;
+  max-width:100%;
+}
+
+a{
+  color:inherit;
+}
+
+.wrap{
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 24px;
+}
+
+.eyebrow{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--bronze);
+}
+
+/* HEADER */
+
+header.site{
+  padding:20px 0;
+  border-bottom:1px solid var(--line);
+  background:var(--parchment-2);
+}
+
+.site-header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-family:var(--serif);
+  font-size:20px;
+  font-weight:700;
+}
+
+.logo span{
+  color:var(--bronze);
+}
+
+/* HERO */
+
+.hero{
+  padding:60px 0 50px;
+  background:var(--parchment-2);
+  border-bottom:1px solid var(--line);
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:45px;
+  align-items:center;
+}
+
+@media(min-width:860px){
+  .hero-grid{
+    grid-template-columns:1.05fr .95fr;
+    gap:60px;
+  }
+}
+
+.hero h1{
+  font-family:var(--serif);
+  font-size:clamp(32px,5.5vw,50px);
+  line-height:1.1;
+  margin:14px 0 18px;
+}
+
+.hero .sub{
+  font-size:17px;
+  color:var(--stone);
+  max-width:550px;
+  margin-bottom:26px;
+}
+
+.scorecard-strip{
+  display:flex;
+  gap:6px;
+  max-width:420px;
+  margin:28px 0 8px;
+}
+
+.scorecard-strip .seg{
+  flex:1;
+  height:6px;
+  border-radius:2px;
+  background:var(--line);
+}
+
+.scorecard-caption{
+  font-size:12px;
+  color:var(--stone);
+  margin-bottom:30px;
+}
+
+/* GUIDE MOCKUP */
+
+.guide-mock{
+  background:var(--ink);
+  border-radius:6px;
+  padding:28px 26px;
+  aspect-ratio:3/4;
+  max-width:340px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  box-shadow:
+    0 24px 48px -20px rgba(30,30,30,.35),
+    0 2px 0 var(--gold);
+}
+
+.guide-mock .mk-eyebrow{
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:600;
+}
+
+.guide-mock .mk-title{
+  color:#fff;
+  font-family:var(--serif);
+  font-size:27px;
+  line-height:1.18;
+  margin-top:10px;
+}
+
+.mk-line{
+  height:1px;
+  background:rgba(255,255,255,.16);
+  margin:18px 0;
+}
+
+.mk-list{
+  list-style:none;
+  color:rgba(255,255,255,.78);
+  font-size:12.5px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.mk-list li{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.mk-list li::before{
+  content:'';
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--gold);
+}
+
+.mk-footer{
+  color:var(--gold);
+  font-family:var(--serif);
+  font-size:12px;
+}
+
+/* EMAIL CARD */
+
+.capture-card{
+  background:var(--parchment-2);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:24px;
+  max-width:460px;
+}
+
+.capture-card h3{
+  font-family:var(--serif);
+  font-size:20px;
+  margin-bottom:6px;
+}
+
+.capture-card p.small{
+  font-size:13.5px;
+  color:var(--stone);
+  margin-bottom:16px;
+}
+
+.capture-form{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.field-label{
+  font-size:12px;
+  font-weight:600;
+  color:var(--stone);
+}
+
+input[type="email"]{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid var(--line);
+  border-radius:5px;
+  font-family:var(--sans);
+  font-size:15px;
+  background:#fff;
+  color:var(--ink);
+}
+
+.btn-primary{
+  background:var(--ink);
+  color:#fff;
+  border:none;
+  border-radius:5px;
+  padding:14px 20px;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:15px;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+  text-align:center;
+}
+
+.btn-primary:hover{
+  background:#000;
+}
+
+.btn-gold{
+  background:var(--gold);
+  color:var(--ink);
+}
+
+.btn-gold:hover{
+  background:var(--bronze);
+  color:#fff;
+}
+
+.btn-primary:disabled{
+  opacity:.65;
+  cursor:not-allowed;
+}
+
+.reassurance{
+  font-size:12.5px;
+  color:var(--stone);
+  margin-top:12px;
+}
+
+/* SECTIONS */
+
+section{
+  padding:56px 0;
+}
+
+.section-head{
+  max-width:640px;
+  margin-bottom:32px;
+}
+
+.section-head h2{
+  font-family:var(--serif);
+  font-size:clamp(25px,3.6vw,34px);
+  margin-top:8px;
+}
+
+.section-head p{
+  color:var(--stone);
+  margin-top:10px;
+}
+
+/* CARDS */
+
+.cards-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+}
+
+@media(min-width:640px){
+ 
